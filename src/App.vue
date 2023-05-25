@@ -21,8 +21,7 @@ export default {
     getProjects() {
       axios.get(this.apiBaseUrl + this.apiUrls.projects)
       .then((response) => {
-        this.projects = response.data.results;
-        console.log(response);
+        this.projects = response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +36,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain />
+  <AppMain :data="projects"/>
 </template>
 
 
