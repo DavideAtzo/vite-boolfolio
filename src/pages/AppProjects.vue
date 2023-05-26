@@ -20,7 +20,6 @@ export default {
             axios.get(this.apiBaseUrl + this.apiUrls.projects)
                 .then((response) => {
                     this.projects = response.data.results;
-                    console.log(response)
                 })
                 .catch((error) => {
                     console.log(error);

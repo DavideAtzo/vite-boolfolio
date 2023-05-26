@@ -1,6 +1,6 @@
 <script>
 export default {
-    name:'AppHeader'
+    name: 'AppHeader'
 }
 </script>
 
@@ -9,13 +9,13 @@ export default {
         <div class="container">
             <div class="row">
                 <nav>
-                    <ul class="list-unstyled">
-                        <li>
+                    <ul class="list-unstyled d-flex gap-4">
+                        <li class="p-3">
                             <RouterLink :to="{ name: 'home' }" class="nav-link">
                                 home
                             </RouterLink>
                         </li>
-                        <li>
+                        <li class="p-3">
                             <RouterLink :to="{ name: 'projects' }" class="nav-link">
                                 projects
                             </RouterLink>
@@ -27,6 +27,14 @@ export default {
     </header>
 </template>
 
-<style>
+<style lang="scss" scoped>
+header {
+    background-color: aquamarine;
 
+    li {
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}
 </style>
