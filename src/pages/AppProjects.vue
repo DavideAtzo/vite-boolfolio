@@ -34,7 +34,7 @@ export default {
 <template>
     <main>
         <div class="container">
-            <div class="row g-5">
+            <div class="row g-5 mt-4">
                 <div class="card col-md-3" v-for="project in projects">
                     <ProjectCard :project="project"></ProjectCard>
                 </div>

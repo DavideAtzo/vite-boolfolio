@@ -12,11 +12,14 @@ export default {
     <div class="card-body">
         <p><span class="">Date: </span>{{ project.creation_date }}</p>
         <p><span>Description: </span>{{ project.description }}</p>
+        <router-link :to="{ name: 'project', params: { slug: project.slug } }" class="btn btn-primary">
+            dettaglio prodotto
+        </router-link>
     </div>
 </template>
 
 <style lang="scss" scoped>
-span{
+span {
     text-transform: uppercase;
 }
 </style>
