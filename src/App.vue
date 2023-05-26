@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
+import ProjectCard from './components/ProjectCard.vue';
 export default {
   name: 'App',
   data() {
@@ -15,7 +15,7 @@ export default {
   },
   components: {
     AppHeader,
-    AppMain
+    ProjectCard
   },
   methods: {
     getProjects() {
@@ -36,7 +36,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain :data="projects"/>
+  <ProjectCard :data="projects"/>
 </template>
 
 

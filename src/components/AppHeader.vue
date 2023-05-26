@@ -8,9 +8,13 @@ export default {
     <header>
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <h1>Benvenuto! Qui visualizzerai i miei progetti fittizzi</h1>
-                </div>
+                <nav>
+                    <ul class="list-unstyled">
+                        <li>
+                            link
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
