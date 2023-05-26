@@ -15,7 +15,7 @@ export default {
         getProject() {
             axios.get(this.apiBaseUrl + this.apiUrls.projects + "/" + this.$route.params.slug)
                 .then((response) => {
-                    // this.project = response.data.results
+                    this.project = response.data.results
                     console.log(response)
                 })
         }
@@ -29,13 +29,12 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <section>
-                <!-- <h2>{{ project.description }}</h2> -->
+            <section class="mt-4">
+                <h2>{{ project.description }}</h2>
                 <div class="card-body">
-                    <!-- <p><span class="">Date: </span>{{ project.creation_date }}</p>
+                    <p><span class="">Date: </span>{{ project.creation_date }}</p>
                     <p><span>Description: </span>{{ project.description }}</p>
-                    <p><span>Description: </span>{{ project.type }}</p>
-                    <p><span>Description: </span>{{ project.technology }}</p> -->
+                    <p>type: {{ project.type.name }}</p>
                 </div>
             </section>
         </div>
