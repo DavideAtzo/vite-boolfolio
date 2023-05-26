@@ -11,7 +11,14 @@ export default {
                 <nav>
                     <ul class="list-unstyled">
                         <li>
-                            link
+                            <RouterLink :to="{ name: 'home' }" class="nav-link">
+                                home
+                            </RouterLink>
+                        </li>
+                        <li>
+                            <RouterLink :to="{ name: 'projects' }" class="nav-link">
+                                projects
+                            </RouterLink>
                         </li>
                     </ul>
                 </nav>
