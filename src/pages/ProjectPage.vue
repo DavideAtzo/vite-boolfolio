@@ -30,11 +30,17 @@ export default {
     <div class="container">
         <div class="row">
             <section class="mt-4">
-                <h2>{{ project.description }}</h2>
+                <h2>{{ project.project_title }}</h2>
                 <div class="card-body">
                     <p><span class="">Date: </span>{{ project.creation_date }}</p>
                     <p><span>Description: </span>{{ project.description }}</p>
-                    <p>type: {{ project.type.name }}</p>
+                    <p v-if="project.type && project.type.name">Type: {{ project.type.name }}</p>
+                    <p v-else>Type: No select type</p>
+                    <div>Technologies:
+                        <span v-for="technology in project.technologies">
+                           {{ technology.name }},
+                        </span>
+                    </div>
                 </div>
             </section>
         </div>
