@@ -8,7 +8,9 @@ export default {
             apiUrls: {
                 projects: '/projects'
             },
-            project: []
+            project: null,
+            isError: false,
+            errorMessage: null
         }
     },
     methods: {
@@ -16,7 +18,13 @@ export default {
             axios.get(this.apiBaseUrl + this.apiUrls.projects + "/" + this.$route.params.slug)
                 .then((response) => {
                     this.project = response.data.results
-                    console.log(response)
+                }).catch((error) => {
+                    console.log(error);
+                    if (error.response.status === 404) {
+                        this.$router.push({ name: 'not-found' });
+                    }
+                    this.isError = true;
+                    this.errorMessage = error.message;
                 })
         }
     },
