@@ -37,7 +37,7 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <section class="mt-4">
+            <section class="mt-4" v-if="project">
                 <h2>{{ project.project_title }}</h2>
                 <div class="card-body">
                     <p><span class="">Date: </span>{{ project.creation_date }}</p>
