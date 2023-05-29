@@ -6,7 +6,7 @@ export default {
         return {
             apiBaseUrl: 'http://127.0.0.1:8000/api',
             technologies: [],
-            currentType: '',
+            currentTechnology: '',
         }
     },
     methods: {
@@ -14,11 +14,10 @@ export default {
             axios.get(this.apiBaseUrl + "/technologies")
                 .then((response) => {
                     this.technologies = response.data.results
-                    console.log(response)
                 })
         },
         // getTechnologies(){
-        //     this.$router.push({name: 'technology', params:{slug: this.currentType}});
+        //     this.$router.push({name: 'technology', params:{slug: this.currentTechnology}});
         // }
     },
     created() {

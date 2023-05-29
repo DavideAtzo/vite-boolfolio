@@ -4,6 +4,7 @@ import AppProjects from './pages/AppProjects.vue';
 import ProjectPage from './pages/ProjectPage.vue';
 import NotFoundPage from './pages/NotFoundPage.vue';
 import TypePage from './pages/TypePage.vue';
+import TechnologyPage from './pages/TechnologyPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -32,6 +33,11 @@ const router = createRouter({
             path: '/types/:slug',
             name: 'type',
             component: TypePage
+        },
+        {
+            path: '/technologies/:slug',
+            name: 'technology',
+            component: TechnologyPage
         },
         ]
 });
