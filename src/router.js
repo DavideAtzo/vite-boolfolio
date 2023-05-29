@@ -3,6 +3,8 @@ import AppHome from './pages/AppHome.vue';
 import AppProjects from './pages/AppProjects.vue';
 import ProjectPage from './pages/ProjectPage.vue';
 import NotFoundPage from './pages/NotFoundPage.vue';
+import TypePage from './pages/TypePage.vue';
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -25,7 +27,12 @@ const router = createRouter({
             path: '/:pathMatch(.*)*', 
             name: 'not-found',
             component: NotFoundPage 
-        }
+        },
+        {
+            path: '/types/:slug',
+            name: 'type',
+            component: TypePage
+        },
         ]
 });
 
