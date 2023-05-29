@@ -8,7 +8,9 @@ export default {
             apiUrls: {
                 projects: '/projects'
             },
-            types: []
+            types: [],
+            currentType: '',
+            categories: []
         }
     },
     methods: {
@@ -17,6 +19,9 @@ export default {
                 .then((response) => {
                     this.types = response.data.results
                 })
+        },
+        changePage(){
+            this.$router.push({name: 'type', params:{slug: this.currentType}});
         }
     },
     created() {
@@ -25,8 +30,8 @@ export default {
 }
 </script>
 <template>
-    <select class="form-select mt-3" v-if="types.length > 0">
-        <option :value="types.slug" v-for="item in types">{{ item.name }}</option>
+    <select class="form-select mt-3" v-if="types.length > 0" @change="changePage" v-model="currentType">
+        <option :value="item.slug" v-for="item in types">{{ item.name }}</option>
     </select>
 
 </template>
