@@ -10,7 +10,6 @@ export default {
             },
             types: [],
             currentType: '',
-            categories: []
         }
     },
     methods: {
