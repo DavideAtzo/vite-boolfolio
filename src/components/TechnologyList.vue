@@ -16,9 +16,9 @@ export default {
                     this.technologies = response.data.results
                 })
         },
-        // getTechnologies(){
-        //     this.$router.push({name: 'technology', params:{slug: this.currentTechnology}});
-        // }
+        changePage(){
+            this.$router.push({name: 'technology', params:{slug: this.currentTechnology}});
+        }
     },
     created() {
         this.getTechnologies();
@@ -29,7 +29,7 @@ export default {
 <template>
     <section>
         <div class="container">
-            <select class="form-select mt-3" v-if="technologies.length > 0">
+            <select class="form-select mt-3" v-if="technologies.length > 0" @change="changePage" v-model="currentTechnology">
                 <option :value="item.slug" v-for="item in technologies">{{ item.name }}</option>
             </select>
         </div>
