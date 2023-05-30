@@ -36,8 +36,21 @@ export default {
             return commentDate.toLocaleString();
         },
         sendComment() {
-            console.log(this.formData.author);
-            console.log(this.formData.content);
+            const data = {
+                author: this.formData.author,
+                content: this.formData.content,
+                project_id: this.project.id
+            };
+            axios.post(this.apiBaseUrl + `/comments`, data)
+                .then((response) => {
+                    if(response.status === 201){ 
+                        this.project.comments.push(response.data)
+                    } 
+
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
         },
     },
 
