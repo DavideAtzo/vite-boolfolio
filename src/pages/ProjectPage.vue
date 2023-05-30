@@ -10,7 +10,11 @@ export default {
             },
             project: null,
             isError: false,
-            errorMessage: null
+            errorMessage: null,
+            formData: {
+                author: '',
+                content: ''
+            }
         }
     },
     methods: {
@@ -30,7 +34,11 @@ export default {
         commentDate(comment_date) {
             const commentDate = new Date(comment_date);
             return commentDate.toLocaleString();
-        }
+        },
+        sendComment() {
+            console.log(this.formData.author);
+            console.log(this.formData.content);
+        },
     },
 
     created() {
@@ -64,14 +72,14 @@ export default {
                     </div>
                     <div class="mt-4">
                         <h3>New comment</h3>
-                        <form>
+                        <form @submit.prevent="sendComment">
                             <div class="mb-3">
                                 <label for="author" class="form-label">Author</label>
-                                <input type="text" class="form-control" id="author">
+                                <input type="text" class="form-control" id="author" v-model="formData.author">
                             </div>
                             <div class="mb-3">
                                 <label for="content" class="form-label">Text</label>
-                                <textarea class="form-control" id="content" rows="3"></textarea>
+                                <textarea class="form-control" id="content" rows="3" v-model="formData.content"></textarea>
                             </div>
                             <button class="btn btn-primary">Send comment</button>
                         </form>
