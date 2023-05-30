@@ -13,6 +13,7 @@ export default {
             errorMessage: null,
             formData: {
                 author: '',
+                email:'',
                 content: ''
             }
         }
@@ -38,14 +39,15 @@ export default {
         sendComment() {
             const data = {
                 author: this.formData.author,
+                email: this.formData.email,
                 content: this.formData.content,
                 project_id: this.project.id
             };
             axios.post(this.apiBaseUrl + `/comments`, data)
                 .then((response) => {
-                    if(response.status === 201){ 
+                    if (response.status === 201) {
                         this.project.comments.push(response.data)
-                    } 
+                    }
 
                 })
                 .catch((error) => {
@@ -89,6 +91,10 @@ export default {
                             <div class="mb-3">
                                 <label for="author" class="form-label">Author</label>
                                 <input type="text" class="form-control" id="author" v-model="formData.author">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" v-model="formData.email">
                             </div>
                             <div class="mb-3">
                                 <label for="content" class="form-label">Text</label>
