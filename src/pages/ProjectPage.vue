@@ -49,6 +49,13 @@ export default {
                            {{ technology.name }},
                         </span>
                     </div>
+                    <div class="mt-4">
+                        <h3>Comments:</h3>
+                        <div v-for="comment in project.comments">
+                            <h4>{{ comment.author }}</h4>
+                            <p>{{ comment.content }}</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
