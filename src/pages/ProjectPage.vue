@@ -26,8 +26,13 @@ export default {
                     this.isError = true;
                     this.errorMessage = error.message;
                 })
+        },
+        commentDate(comment_date) {
+            const commentDate = new Date(comment_date);
+            return commentDate.toLocaleString();
         }
     },
+    
     created() {
         this.getProject();
     }
@@ -53,6 +58,7 @@ export default {
                         <h3>Comments:</h3>
                         <div v-for="comment in project.comments">
                             <h4>{{ comment.author }}</h4>
+                            <p>{{ commentDate(comment.created_at) }}</p>
                             <p>{{ comment.content }}</p>
                         </div>
                     </div>
