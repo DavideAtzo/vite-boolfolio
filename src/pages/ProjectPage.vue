@@ -32,7 +32,7 @@ export default {
             return commentDate.toLocaleString();
         }
     },
-    
+
     created() {
         this.getProject();
     }
@@ -51,16 +51,30 @@ export default {
                     <p v-else>Type: No select type</p>
                     <div>Technologies:
                         <span v-for="technology in project.technologies">
-                           {{ technology.name }},
+                            {{ technology.name }},
                         </span>
                     </div>
                     <div class="mt-4">
-                        <h3>Comments:</h3>
+                        <h3>Comments</h3>
                         <div v-for="comment in project.comments">
                             <h4>{{ comment.author }}</h4>
                             <p>{{ commentDate(comment.created_at) }}</p>
                             <p>{{ comment.content }}</p>
                         </div>
+                    </div>
+                    <div class="mt-4">
+                        <h3>New comment</h3>
+                        <form>
+                            <div class="mb-3">
+                                <label for="author" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="author">
+                            </div>
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Text</label>
+                                <textarea class="form-control" id="content" rows="3"></textarea>
+                            </div>
+                            <button class="btn btn-primary">Send comment</button>
+                        </form>
                     </div>
                 </div>
             </section>
